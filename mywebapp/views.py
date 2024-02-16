@@ -11,13 +11,31 @@ def index(request):
     return render(request, 'index.html', {'categorias': categorias, 'productos': productos, 'clientes': clientes})
 
 def agregar_categoria(request):
-    # Implementa lógica para agregar categorías
-    # ...
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = CategoriaForm()
+    return render(request, 'agregar_categoria.html', {'form': form})
 
 def agregar_producto(request):
-    # Implementa lógica para agregar productos
-    # ...
+    if request.method == 'POST':
+        form = ProductoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = ProductoForm()
+    return render(request, 'agregar_producto.html', {'form': form})
 
 def agregar_cliente(request):
-    # Implementa lógica para agregar clientes
-    # ...
+    if request.method == 'POST':
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = ClienteForm()
+    return render(request, 'agregar_cliente.html', {'form': form})
