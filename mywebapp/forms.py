@@ -1,8 +1,9 @@
-# mywebapp/forms.py
-
 from django import forms
 from .models import Categoria, Producto, Cliente
 
+class BusquedaForm(forms.Form):
+    termino_busqueda = forms.CharField(label='Buscar')
+    
 class CategoriaForm(forms.ModelForm):
     class Meta:
         model = Categoria

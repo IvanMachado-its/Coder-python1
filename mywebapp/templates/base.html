@@ -1,13 +1,34 @@
-<!-- mywebapp/templates/base.html -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>{% block title %}My Web App{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{% block title %}My Web Project{% endblock %}</title>
 </head>
 <body>
-    <div id="content">
-        {% block content %}{% endblock %}
-    </div>
+    <header>
+        <div class="container">
+            <h1>My Web Project</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'buscar' %}">Buscar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2024 My Web Project
+        </div>
+    </footer>
 </body>
 </html>

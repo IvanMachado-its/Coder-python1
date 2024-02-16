@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Resultados de búsqueda - My Web Project{% endblock %}
+
+{% block content %}
+    <h2>Resultados de Búsqueda</h2>
+    
+    {% if resultados_categorias %}
+        <h3>Categorías:</h3>
+        <ul>
+            {% for categoria in resultados_categorias %}
+                <li>{{ categoria.nombre }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if resultados_productos %}
+        <h3>Productos:</h3>
+        <ul>
+            {% for producto in resultados_productos %}
+                <li>{{ producto.nombre }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if resultados_clientes %}
+        <h3>Clientes:</h3>
+        <ul>
+            {% for cliente in resultados_clientes %}
+                <li>{{ cliente.nombre }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
