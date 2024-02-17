@@ -1,17 +1,19 @@
-<!-- mywebapp/templates/base.html -->
+<!-- mywebapp/templates/index.html -->
+
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>{% block title %}My Web Project{% endblock %}</title>
+    <title>My Web Project</title>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>{% block header %}My Web Project{% endblock %}</h1>
+            <h1>My Web Project</h1>
             <nav>
                 <ul>
                     <li><a href="{% url 'index' %}">Home</a></li>
@@ -24,8 +26,20 @@
         </div>
     </header>
     <main>
-        <div class="content">
-            {% block content %}{% endblock %}
+        <div class="article-container">
+            {% for articulo in articulos %}
+                <div class="article">
+                    <h2>{{ articulo.titulo }}</h2>
+                    <p>{{ articulo.contenido }}</p>
+                </div>
+            {% endfor %}
+            
+            {% for producto in productos_recientes %}
+                <div class="product">
+                    <h2>{{ producto.nombre }}</h2>
+                    <p>{{ producto.descripcion }}</p>
+                </div>
+            {% endfor %}
         </div>
     </main>
 </body>
